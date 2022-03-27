@@ -1,6 +1,3 @@
-[build]
-target = "thumbv7em-none-eabihf"
-
 [target.'cfg(target_os = "linux")']
 rustflags = ["-C", "link-arg=-nostartfiles"]
 
