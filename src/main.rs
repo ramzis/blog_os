@@ -1,4 +1,5 @@
 #![no_std]
+#![no_main]
 
 use core::panic::PanicInfo;
 
@@ -10,4 +11,10 @@ fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
 
-fn main() {}
+// Overwriting the main entry point.
+// no_mangle ensures the compiler keeps the '_start' name to use for linking.
+// extern "C" specifies the calling convention.
+#[no_mangle]
+pub extern "C" fn _start() -> ! {
+    loop {}
+}
